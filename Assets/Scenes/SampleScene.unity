@@ -931,8 +931,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lockOnTransform: {fileID: 443888395}
-  isBlocking: 0
   isParrying: 0
+  isBlocking: 0
   isPreformingAction: 0
   enemyAttacks: []
   currentAttack: {fileID: 0}
@@ -974,7 +974,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 571249773}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.011303894, y: 0, z: 15.57}
+  m_LocalPosition: {x: 2.97, y: 0, z: 15.57}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 543450653448797361}
@@ -1087,8 +1087,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lockOnTransform: {fileID: 1219900584}
-  isBlocking: 0
   isParrying: 0
+  isBlocking: 0
   isInteracting: 0
   isSprinting: 0
   isInAir: 0
@@ -1112,8 +1112,10 @@ MonoBehaviour:
   unarmedWeapon: {fileID: 11400000, guid: c4e709ec7c0c1db4abb79afd931ce1b1, type: 2}
   weaponsInRightHandSlots:
   - {fileID: 11400000, guid: 8b01bc1a25e886a40a1622575181e1a3, type: 2}
+  - {fileID: 11400000, guid: ace7d4aa47e090649887304266bedbcb, type: 2}
   weaponsInLeftHandSlots:
   - {fileID: 11400000, guid: 76911faa447e1904ca28ee1ebb7706e5, type: 2}
+  - {fileID: 11400000, guid: 8b01bc1a25e886a40a1622575181e1a3, type: 2}
   currentRightWeaponIndex: -1
   currentLeftWeaponIndex: -1
 --- !u!114 &571249782
@@ -1532,8 +1534,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lockOnTransform: {fileID: 1068150112}
-  isBlocking: 0
   isParrying: 0
+  isBlocking: 0
   isPreformingAction: 0
   enemyAttacks:
   - {fileID: 11400000, guid: b1f7d67cee52b3440bc7eb666161074b, type: 2}
@@ -2863,8 +2865,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lockOnTransform: {fileID: 420545822}
-  isBlocking: 0
   isParrying: 0
+  isBlocking: 0
   isPreformingAction: 0
   enemyAttacks: []
   currentAttack: {fileID: 0}
@@ -3214,8 +3216,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lockOnTransform: {fileID: 1951729705}
-  isBlocking: 0
   isParrying: 0
+  isBlocking: 0
   isPreformingAction: 0
   enemyAttacks: []
   currentAttack: {fileID: 0}
@@ -3393,8 +3395,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7812146963a74f14dabbcfdd5fb4daaa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  blockingCollider: {fileID: 0}
-  blockingPhysicalDamageAbsorption: 0
+  blockingCollider: {fileID: 1485663392}
+  blockingPhysicalDamageAbsorption: 99
 --- !u!65 &1485663392
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3406,8 +3408,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 0
   serializedVersion: 2
-  m_Size: {x: 1.1924822, y: 1.5249517, z: 0.2534021}
-  m_Center: {x: -0.02041468, y: 0.7640964, z: 0.37329894}
+  m_Size: {x: 1.1924822, y: 2.0117226, z: 0.2534021}
+  m_Center: {x: -0.02041471, y: 1.0074818, z: 0.37329894}
 --- !u!4 &1521141338 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6026461718471387434, guid: cc0d41fce3a3ebc49874e77068a0a16a,
@@ -5793,6 +5795,11 @@ PrefabInstance:
       propertyPath: m_Color.a
       value: 0.54901963
       objectReference: {fileID: 0}
+    - target: {fileID: 6008849955178631853, guid: 5dd98964e69757c4d9f1c3d1d6f7a189,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -1141
+      objectReference: {fileID: 0}
     - target: {fileID: 6008849956132059485, guid: 5dd98964e69757c4d9f1c3d1d6f7a189,
         type: 3}
       propertyPath: m_LocalPosition.z
@@ -5862,6 +5869,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Color.a
       value: 0.54901963
+      objectReference: {fileID: 0}
+    - target: {fileID: 8543843718512692346, guid: 5dd98964e69757c4d9f1c3d1d6f7a189,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -912
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5dd98964e69757c4d9f1c3d1d6f7a189, type: 3}

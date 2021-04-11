@@ -48,12 +48,12 @@ namespace CQ
                     }
                     else if (shield != null && enemyCharacterManager.isBlocking)
                     {
-                        float physicalDamageAfterBlock =
-                            currentWeaponDamage - (currentWeaponDamage * shield.blockingPhysicalDamageAbsorption) / 100;
+                        float physicalDamageAfterBlock = currentWeaponDamage - (currentWeaponDamage * shield.blockingPhysicalDamageAbsorption) / 100;
 
                         if (playerStats != null)
                         {
                             playerStats.TakeDamage(Mathf.RoundToInt(physicalDamageAfterBlock), "Block Guard");
+                            return;
                         }
                     }
                 }

@@ -9,7 +9,7 @@ namespace CQ
         public Transform lockOnTransform;
 
         [Header("Combat Flags")]
-        public bool isBlocking;
         public bool isParrying;
+        public bool isBlocking;
     }
 }

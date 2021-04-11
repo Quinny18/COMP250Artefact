@@ -20,11 +20,11 @@ namespace CQ
         {
             if (inputHandler.twoHandFlag)
             {
-                blockingCollider.SetColliderDamageAbsorption(playerInventory.leftWeapon);
+                blockingCollider.SetColliderDamageAbsorption(playerInventory.rightWeapon);
             }
             else
             {
-                blockingCollider.SetColliderDamageAbsorption(playerInventory.rightWeapon);
+                blockingCollider.SetColliderDamageAbsorption(playerInventory.leftWeapon);
             }
             
             blockingCollider.EnableBlockingCollider();

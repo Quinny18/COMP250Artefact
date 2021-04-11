@@ -6,8 +6,8 @@ namespace CQ
 {
     public class PlayerAttacker : MonoBehaviour
     {
-        PlayerEquipmentManager playerEquipmentManager;
         AnimatorHandler animatorHandler;
+        PlayerEquipmentManager playerEquipmentManager;
         InputHandler inputHandler;
         WeaponSlotManager weaponSlotManager;
         PlayerManager playerManager;

@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1e449e7618dc4f45990c407d5a39f35, type: 3}
   m_Name: Shield
   m_EditorClassIdentifier: 
-  itemIcon: {fileID: 0}
+  itemIcon: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
   itemName: Shield
   modelPrefab: {fileID: 5288381557955526329, guid: 08efea720f80a814e9ed71de8d7fac11,
     type: 3}
-  isUnarmed: 1
+  isUnarmed: 0
   baseDamage: 25
   criticalDamageMultiplier: 4
   physicalDamageAbsorption: 99
@@ -29,4 +29,4 @@ MonoBehaviour:
   lightAttackMultiplier: 0
   heavyAttackMultiplier: 0
   isMeleeWeapon: 0
-  isShieldWeapon: 0
+  isShieldWeapon: 1
