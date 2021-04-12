@@ -9,7 +9,9 @@ namespace CQ
         InputHandler inputHandler;
         Animator anim;
         CameraHandler cameraHandler;
+        PlayerStats playerStats;
         PlayerLocomotion playerLocomotion;
+
 
         public bool isInteracting;
 
@@ -18,6 +20,7 @@ namespace CQ
         public bool isInAir;
         public bool isGrounded;
         public bool canDoCombo;
+        public bool isInvulnerable;
 
         public float distanceToBoss;
         private void Awake()
@@ -29,6 +32,7 @@ namespace CQ
         {
             inputHandler = GetComponent<InputHandler>();
             anim = GetComponentInChildren<Animator>();
+            playerStats = GetComponent<PlayerStats>();
             playerLocomotion = GetComponent<PlayerLocomotion>();
         }
 
@@ -37,11 +41,13 @@ namespace CQ
             float delta = Time.deltaTime;
             isInteracting = anim.GetBool("isInteracting");
             canDoCombo = anim.GetBool("canDoCombo");
+            isInvulnerable = anim.GetBool("isInvulnerable");
             anim.SetBool("isInAir", isInAir);
             anim.SetBool("isBlocking", isBlocking);
             inputHandler.TickInput(delta);
             playerLocomotion.HandleRollAndSprinting(delta);
             playerLocomotion.HandleJumping();
+            playerStats.RegenerateStamina();
         }
 
         private void FixedUpdate()
