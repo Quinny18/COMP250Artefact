@@ -108,6 +108,7 @@ namespace CQ
 
             isPreformingAction = true;
             currentRecoveryTime = currentAttack.recoveryTime;
+            Debug.Log("Normal Attack");
             enemyAnimatorManager.PlayTargetAnimation(currentAttack.actionAnimation, true);
             currentRecoveryTime = 3f;
         }
@@ -119,8 +120,9 @@ namespace CQ
 
             isPreformingAction = true;
             currentRecoveryTime = currentAttack.recoveryTime;
+            Debug.Log("Rapid Strikes");
             enemyAnimatorManager.PlayTargetAnimation("EnemyBossRapidStrikes", true);
-            currentRecoveryTime = 1f;
+            currentRecoveryTime = 3f;
         }
         #endregion
     }

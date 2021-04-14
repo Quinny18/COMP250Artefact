@@ -68,12 +68,14 @@ namespace CQ
                 {
                     playerStats.TakeDamage(currentWeaponDamage);
                 }
+                
             }
             else if (collision.tag == "Player" && playerManager.isBlocking == true)
             {
                 playerStats.TakeStaminaDamage(currentWeaponDamage);
-                animatorHandler.PlayTargetAnimation("PlayerStagger", true);
                 playerManager.isBlocking = false;
+                playerManager.isPreformingAction = true;
+                animatorHandler.PlayTargetAnimation("PlayerStagger", true);
                 // stop block
             }
 

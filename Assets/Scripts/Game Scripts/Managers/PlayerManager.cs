@@ -12,8 +12,9 @@ namespace CQ
         PlayerStats playerStats;
         PlayerLocomotion playerLocomotion;
 
-
+        public bool isPreformingAction;
         public bool isInteracting;
+        public float currentRecoveryTime = 1f;
 
         [Header("Player Flags")]
         public bool isSprinting;
@@ -80,5 +81,6 @@ namespace CQ
                 playerLocomotion.inAirTimer = playerLocomotion.inAirTimer + Time.deltaTime;
             }
         }
+
     }
 }
