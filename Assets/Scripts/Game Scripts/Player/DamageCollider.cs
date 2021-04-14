@@ -6,14 +6,20 @@ namespace CQ
 {
     public class DamageCollider : MonoBehaviour
     {
+        AnimatorHandler animatorHandler;
         Collider damageCollider;
         CharacterManager characterManager;
+        PlayerManager playerManager;
+        PlayerStats playerStats;
 
         public int currentWeaponDamage = 25;
 
         private void Awake()
         {
+            animatorHandler = FindObjectOfType<AnimatorHandler>();
+            playerStats = FindObjectOfType<PlayerStats>();
             characterManager = GetComponent<CharacterManager>();
+            playerManager = FindObjectOfType<PlayerManager>();
             damageCollider = GetComponent<Collider>();
             damageCollider.gameObject.SetActive(true);
             damageCollider.isTrigger = true;
@@ -32,7 +38,7 @@ namespace CQ
 
         private void OnTriggerEnter(Collider collision)
         {
-            if (collision.tag == "Player")
+            if (collision.tag == "Player" && playerManager.isBlocking == false)
             {
                 Debug.Log("Hit the Player");
                 PlayerStats playerStats = collision.GetComponent<PlayerStats>();
@@ -63,6 +69,14 @@ namespace CQ
                     playerStats.TakeDamage(currentWeaponDamage);
                 }
             }
+            else if (collision.tag == "Player" && playerManager.isBlocking == true)
+            {
+                playerStats.TakeStaminaDamage(currentWeaponDamage);
+                animatorHandler.PlayTargetAnimation("PlayerStagger", true);
+                playerManager.isBlocking = false;
+                // stop block
+            }
+
 
             if (collision.tag == "Enemy")
             {

@@ -79,7 +79,6 @@ namespace CQ
             {
                 playerLocomotion.inAirTimer = playerLocomotion.inAirTimer + Time.deltaTime;
             }
-
         }
     }
 }

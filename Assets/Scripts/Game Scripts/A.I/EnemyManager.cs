@@ -8,6 +8,7 @@ namespace CQ
     {
         BossEnemyBT bossEnemyBT;
         EnemyStats enemyStats;
+        PlayerManager playerManager;
         BossLocomotionManager bossLocomotionManager;
         EnemyAnimatorManager enemyAnimatorManager;
         public bool isPreformingAction;
@@ -35,6 +36,7 @@ namespace CQ
             enemyAnimatorManager = GetComponentInChildren<EnemyAnimatorManager>();
             enemyStats = GetComponent<EnemyStats>();
             bossEnemyBT = GetComponent<BossEnemyBT>();
+            playerManager = FindObjectOfType<PlayerManager>();
     }
 
         private void Update()
@@ -108,6 +110,17 @@ namespace CQ
             currentRecoveryTime = currentAttack.recoveryTime;
             enemyAnimatorManager.PlayTargetAnimation(currentAttack.actionAnimation, true);
             currentRecoveryTime = 3f;
+        }
+
+        public void rapidStrikes()
+        {
+            if (isPreformingAction)
+                return;
+
+            isPreformingAction = true;
+            currentRecoveryTime = currentAttack.recoveryTime;
+            enemyAnimatorManager.PlayTargetAnimation("EnemyBossRapidStrikes", true);
+            currentRecoveryTime = 1f;
         }
         #endregion
     }

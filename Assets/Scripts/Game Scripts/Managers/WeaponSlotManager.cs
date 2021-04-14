@@ -13,8 +13,9 @@ namespace CQ
 
         DamageCollider leftHandDamageCollider;
         DamageCollider rightHandDamageCollider;
+        DamageCollider damageCollider;
 
-        
+        PlayerManager playerManager;
 
         Animator animator;
 
@@ -24,11 +25,13 @@ namespace CQ
 
         private void Awake()
         {
+            playerManager = FindObjectOfType<PlayerManager>();
             animator = GetComponent<Animator>();
             quickSlotsUI = FindObjectOfType<QuickSlotsUI>();
             playerStats = GetComponentInParent<PlayerStats>();
             leftHandDamageCollider = GetComponentInChildren<DamageCollider>();
             rightHandDamageCollider = GetComponentInChildren<DamageCollider>();
+            damageCollider = FindObjectOfType<DamageCollider>();
 
             WeaponHolderSlot[] weaponHolderSlots = GetComponentsInChildren<WeaponHolderSlot>();
             foreach (WeaponHolderSlot weaponSlot in weaponHolderSlots)
