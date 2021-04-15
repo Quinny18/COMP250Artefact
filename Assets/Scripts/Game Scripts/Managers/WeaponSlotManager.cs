@@ -16,7 +16,9 @@ namespace CQ
         DamageCollider damageCollider;
 
         PlayerManager playerManager;
+        BossLocomotionManager bossLocomotionManager;
 
+        AnimatorHandler animatorHandler;
         Animator animator;
 
         QuickSlotsUI quickSlotsUI;
@@ -26,7 +28,9 @@ namespace CQ
         private void Awake()
         {
             playerManager = FindObjectOfType<PlayerManager>();
+            bossLocomotionManager = FindObjectOfType<BossLocomotionManager>();
             animator = GetComponent<Animator>();
+            animatorHandler = FindObjectOfType<AnimatorHandler>();
             quickSlotsUI = FindObjectOfType<QuickSlotsUI>();
             playerStats = GetComponentInParent<PlayerStats>();
             leftHandDamageCollider = GetComponentInChildren<DamageCollider>();
@@ -128,5 +132,13 @@ namespace CQ
             playerStats.TakeStaminaDamage(Mathf.RoundToInt(attackingWeapon.baseStamina * attackingWeapon.heavyAttackMultiplier));
         }
         #endregion
+
+        public void PlayerStagger()
+        {
+            if (playerManager.distanceToBoss <= bossLocomotionManager.stoppingDistance)
+            {
+                animatorHandler.PlayTargetAnimation("PlayerStagger", true);
+            }
+        }
     }
 }

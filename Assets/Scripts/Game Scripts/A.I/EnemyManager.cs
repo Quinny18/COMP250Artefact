@@ -52,7 +52,11 @@ namespace CQ
 
         private void FixedUpdate()
         {
-            if (enemyStats.currentHealth > phaseTwo)
+            if (playerManager.isBlocking == true)
+            {
+                currentAttack = enemyAttacks[3];
+            }
+            else if (enemyStats.currentHealth > phaseTwo)
             {
                 currentAttack = enemyAttacks[0];
             }
@@ -113,7 +117,7 @@ namespace CQ
             currentRecoveryTime = 3f;
         }
 
-        public void rapidStrikes()
+        /*public void rapidStrikes()
         {
             if (isPreformingAction)
                 return;
@@ -124,6 +128,7 @@ namespace CQ
             enemyAnimatorManager.PlayTargetAnimation("EnemyBossRapidStrikes", true);
             currentRecoveryTime = 3f;
         }
+        */
         #endregion
     }
 

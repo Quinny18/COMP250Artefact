@@ -11,6 +11,7 @@ namespace CQ
         CameraHandler cameraHandler;
         PlayerStats playerStats;
         PlayerLocomotion playerLocomotion;
+        BossLocomotionManager bossLocomotionManager;
 
         public bool isPreformingAction;
         public bool isInteracting;
@@ -27,6 +28,7 @@ namespace CQ
         private void Awake()
         {
             cameraHandler = FindObjectOfType<CameraHandler>();
+            bossLocomotionManager = FindObjectOfType<BossLocomotionManager>();
         }
 
         void Start()
@@ -49,6 +51,8 @@ namespace CQ
             playerLocomotion.HandleRollAndSprinting(delta);
             playerLocomotion.HandleJumping();
             playerStats.RegenerateStamina();
+
+            distanceToBoss = Vector3.Distance(transform.position, bossLocomotionManager.transform.position);
         }
 
         private void FixedUpdate()

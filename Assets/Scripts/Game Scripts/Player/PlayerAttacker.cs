@@ -67,9 +67,10 @@ namespace CQ
             if (playerManager.isBlocking)
                 return;
 
+            playerManager.isBlocking = true;
             animatorHandler.PlayTargetAnimation("Block", false, true);
             playerEquipmentManager.OpenBlockingCollider();
-            playerManager.isBlocking = true;
+            
         }
         #endregion
     }

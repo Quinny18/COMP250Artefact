@@ -10,6 +10,7 @@ namespace CQ
         Collider damageCollider;
         CharacterManager characterManager;
         PlayerManager playerManager;
+        EnemyManager enemyManager;
         PlayerStats playerStats;
 
         public int currentWeaponDamage = 25;
@@ -20,6 +21,7 @@ namespace CQ
             playerStats = FindObjectOfType<PlayerStats>();
             characterManager = GetComponent<CharacterManager>();
             playerManager = FindObjectOfType<PlayerManager>();
+            enemyManager = FindObjectOfType<EnemyManager>();
             damageCollider = GetComponent<Collider>();
             damageCollider.gameObject.SetActive(true);
             damageCollider.isTrigger = true;
@@ -70,14 +72,16 @@ namespace CQ
                 }
                 
             }
+
             else if (collision.tag == "Player" && playerManager.isBlocking == true)
             {
-                playerStats.TakeStaminaDamage(currentWeaponDamage);
                 playerManager.isBlocking = false;
                 playerManager.isPreformingAction = true;
-                animatorHandler.PlayTargetAnimation("PlayerStagger", true);
-                // stop block
+                playerStats.TakeStaminaDamage(currentWeaponDamage);
+                Debug.Log("Guard Broken");
             }
+
+
 
 
             if (collision.tag == "Enemy")

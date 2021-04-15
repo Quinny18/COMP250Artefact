@@ -34,9 +34,9 @@ namespace CQ
             playerDetection = new ActionNode(bossDetectPlayer);
             distanceToPlayer = new ActionNode(distanceToPlayerCheck);
             frontalSlamAttack = new ActionNode(phaseOneAttack);
-            shieldBreak = new ActionNode(rapidStrikes);
+            //shieldBreak = new ActionNode(rapidStrikes);
 
-            bossAttackSequence = new Sequence(new List<Node> {playerDetection, distanceToPlayer, shieldBreak, frontalSlamAttack});
+            bossAttackSequence = new Sequence(new List<Node> {playerDetection, distanceToPlayer, frontalSlamAttack});
 
             //Root Node Comes Last
             rootNode = new Selector(new List<Node> {bossAttackSequence});
@@ -68,10 +68,10 @@ namespace CQ
             {
                 bossLocomotionManager.HandleMoveToTarget(true);
             }
-            else if (shieldBreak.nodeState == NodeStates.FAILURE)
+            /*else if (shieldBreak.nodeState == NodeStates.FAILURE)
             {
                 enemyManager.rapidStrikes();
-            }
+            }*/
             else if (frontalSlamAttack.nodeState == NodeStates.SUCCESS)
             {
                 Debug.Log("Attempting an Attack");
@@ -135,7 +135,7 @@ namespace CQ
             return NodeStates.SUCCESS;
         }
 
-        private NodeStates rapidStrikes()
+        /*private NodeStates rapidStrikes()
         {
             if (playerManager.isBlocking == false)
             {
@@ -146,6 +146,6 @@ namespace CQ
                 return NodeStates.FAILURE;
             }
         }
-
+        */
     }
 }
