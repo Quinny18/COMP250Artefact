@@ -23,7 +23,7 @@ namespace CQ
         public float maximumDetectionAngle = 50;
         public float minimumDetectionAngle = -50;
 
-        public float currentRecoveryTime = 3;
+        public float currentRecoveryTime = 2.5f;
 
         public float phaseOne = 99.9f;
         public float phaseTwo = 66.6f;
@@ -114,21 +114,8 @@ namespace CQ
             currentRecoveryTime = currentAttack.recoveryTime;
             Debug.Log("Normal Attack");
             enemyAnimatorManager.PlayTargetAnimation(currentAttack.actionAnimation, true);
-            currentRecoveryTime = 3f;
+            currentRecoveryTime = 2.5f;
         }
-
-        /*public void rapidStrikes()
-        {
-            if (isPreformingAction)
-                return;
-
-            isPreformingAction = true;
-            currentRecoveryTime = currentAttack.recoveryTime;
-            Debug.Log("Rapid Strikes");
-            enemyAnimatorManager.PlayTargetAnimation("EnemyBossRapidStrikes", true);
-            currentRecoveryTime = 3f;
-        }
-        */
         #endregion
     }
 

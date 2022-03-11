@@ -66,7 +66,7 @@ namespace CQ
             distanceFromTarget = Vector3.Distance(currentTarget.transform.position, transform.position);
             float viewableAngle = Vector3.AngleBetween(targetDirection, transform.forward);
 
-            // If we are preforming an action, stop our movement!
+            // If we are preforming an action, stop our movement
             if (enemyManager.isPreformingAction || move == false)
             {
                 enemyAnimatorManager.anim.SetFloat("Vertical", 0, 0.1f, Time.deltaTime);

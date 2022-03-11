@@ -16,9 +16,7 @@ namespace CQ
         public ActionNode playerHealthNode;
         public ActionNode playerDetection;
         public ActionNode distanceToPlayer;
-        public ActionNode testOne;
-        public ActionNode frontalSlamAttack;
-        public ActionNode shieldBreak;
+        public ActionNode attack;
         public Sequence bossAttackSequence;
         public Selector rootNode;
 
@@ -29,14 +27,12 @@ namespace CQ
 
         void Start()
         {
-            // Begin by performing checks for bosshealth and player distance etc.
-
+            // Begin by performing checks for playerdetection and if we are within range to attack
             playerDetection = new ActionNode(bossDetectPlayer);
             distanceToPlayer = new ActionNode(distanceToPlayerCheck);
-            frontalSlamAttack = new ActionNode(phaseOneAttack);
-            //shieldBreak = new ActionNode(rapidStrikes);
+            attack = new ActionNode(phaseOneAttack);
 
-            bossAttackSequence = new Sequence(new List<Node> {playerDetection, distanceToPlayer, frontalSlamAttack});
+            bossAttackSequence = new Sequence(new List<Node> {playerDetection, distanceToPlayer, attack});
 
             //Root Node Comes Last
             rootNode = new Selector(new List<Node> {bossAttackSequence});
@@ -55,9 +51,9 @@ namespace CQ
             StartCoroutine(Execute());
         }
 
+        // The coroutine runs code from other scripts if the conditions of the Nodestates are met.
         private IEnumerator Execute()
         {
-            //Debug.Log("AI is thinking...");
             yield return new WaitForSeconds(2.5f);
 
             if (playerDetection.nodeState == NodeStates.FAILURE)
@@ -68,11 +64,7 @@ namespace CQ
             {
                 bossLocomotionManager.HandleMoveToTarget(true);
             }
-            /*else if (shieldBreak.nodeState == NodeStates.FAILURE)
-            {
-                enemyManager.rapidStrikes();
-            }*/
-            else if (frontalSlamAttack.nodeState == NodeStates.SUCCESS)
+            else if (attack.nodeState == NodeStates.SUCCESS)
             {
                 Debug.Log("Attempting an Attack");
                 enemyManager.HandleCurrentAction();
@@ -128,24 +120,11 @@ namespace CQ
                 Debug.Log("Moving to Attacking Range");
                 return NodeStates.FAILURE;
             }
-        }
-  
+        }  
+
         private NodeStates phaseOneAttack()
         {
             return NodeStates.SUCCESS;
         }
-
-        /*private NodeStates rapidStrikes()
-        {
-            if (playerManager.isBlocking == false)
-            {
-                return NodeStates.SUCCESS;
-            }
-            else
-            {
-                return NodeStates.FAILURE;
-            }
-        }
-        */
     }
 }
